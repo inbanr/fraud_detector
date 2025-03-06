@@ -60,19 +60,30 @@ This project is a full-stack **fraud detection system** that leverages **machine
 - Add user role management for different analyst permissions.
 
 ## Folder Structure
-/
+fraud-detection-system/
 ├── backend/
-│   ├── main.py              # FastAPI app
-│   ├── model.py             # XGBoost model loading & prediction
-│   └── requirements.txt     # Backend dependencies
+│   ├── main.py                # Main FastAPI app (loading the model, handling API requests)
+│   ├── model.py               # Code to load and use XGBoost model for predictions
+│   ├── data_preprocessing.py   # (Optional) Data cleaning and preprocessing functions
+│   ├── requirements.txt        # Python dependencies (FastAPI, Dask, XGBoost, etc.)
+│   └── fraud_detection_xgb.model  # Saved XGBoost model file
+│
 ├── frontend/
-│   ├── components/          # React components
-│   ├── pages/                # Next.js pages
-│   └── package.json          # Frontend dependencies
+│   ├── components/             # React reusable components (tables, charts, etc.)
+│   ├── pages/                   # Next.js pages (Dashboard, TransactionDetails, etc.)
+│   ├── public/                  # Static assets if needed
+│   ├── styles/                  # CSS or Tailwind configurations
+│   ├── utils/                    # Helper functions (formatting dates, numbers, etc.)
+│   ├── package.json             # Frontend dependencies
+│   └── next.config.js           # Next.js configuration
+│
 ├── data/
-│   └── transactions.csv      # Sample financial transactions
-└── README.md
-
+│   ├── creditcard_2023.csv      # Original dataset (optional, or use a sample file)
+│   ├── processed_transactions.csv  # Processed data after Dask and normalization
+│
+├── .gitignore                    # Ignore unnecessary files (e.g., venv, node_modules)
+├── README.md                     # Project description (use the one I drafted)
+└── LICENSE                       # Optional (MIT License or other)
 
 ## Skills Demonstrated
 - Full-Stack Development
