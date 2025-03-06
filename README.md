@@ -61,33 +61,18 @@ This project is a full-stack **fraud detection system** that leverages **machine
 
 ## Folder Structure
 fraud-detection-system/
-├── backend/
-│   ├── main.py
-│   ├── model.py
-│   ├── data_preprocessing.py
-│   ├── requirements.txt
-│   ├── fraud_detection_xgb.model
-├── frontend/
-│   ├── components/
-│   ├── pages/
-│   ├── public/
-│   ├── styles/
-│   ├── utils/
-│   ├── package.json
-│   ├── next.config.js
-├── data/
-│   ├── creditcard_2023.csv
-│   ├── processed_transactions.csv
-├── .gitignore
-├── README.md
-└── LICENSE## Skills Demonstrated
-- Full-Stack Development
-- Machine Learning (XGBoost)
-- Scalable Data Processing (Dask)
-- API Development (FastAPI)
-- Frontend Development (React + Next.js)
-- Database Management (PostgreSQL)
-
+backend/
+    main.py - Main FastAPI app
+    model.py - XGBoost model loader
+    requirements.txt - Python dependencies
+frontend/
+    components/ - React components
+    pages/ - Next.js pages
+data/
+    creditcard_2023.csv - Original dataset
+    processed_transactions.csv - Cleaned data
+README.md - Project description
+LICENSE - Optional license
 ---
 
 ## License
