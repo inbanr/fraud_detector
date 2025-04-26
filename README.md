@@ -31,7 +31,7 @@ This project is a full-stack **fraud detection system** that leverages **machine
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/YOUR_USERNAME/fraud-detection-system.git
+    git clone https://github.com/inbanr/fraud-detection-system.git
     ```
 2. Install backend dependencies:
     ```bash
