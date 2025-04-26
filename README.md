@@ -1,87 +1,142 @@
-# fraud_detector
-AI-powered fraud detection system using XGBoost to identify suspicious transactions in real time. Built with React, Next.js, FastAPI, and PostgreSQL, with Dask for scalable data processing. Combines full-stack development and machine learning to enhance payment security.
+# Credit Card Fraud Detection
 
+This project is a complete end-to-end machine learning application that detects fraudulent credit card transactions using **Logistic Regression trained with custom Gradient Descent**.  
+It features a **React dashboard frontend** to visualize model performance.
 
-# AI-Powered Fraud Detection System
-
-## Overview
-This project is a full-stack **fraud detection system** that leverages **machine learning (XGBoost)** to detect suspicious financial transactions in real time. It integrates **AI-driven anomaly detection** with an interactive dashboard for financial analysts, enhancing payment security and transparency.
-
-## Features
-- 🚀 Real-time transaction monitoring with fraud flagging
-- 🔍 AI-powered fraud detection using **XGBoost**
-- 📊 Interactive dashboard built with **React** and **Next.js** for visualization
-- ⚡ Efficient data processing using **Dask** for large-scale financial data
-- 🗄️ Backend API built with **FastAPI**, connected to **PostgreSQL** for secure data storage
-- 📬 Supports real-time alert generation for high-risk transactions
-
-## Tech Stack
-- **Backend:** FastAPI, Python, Dask, XGBoost, PostgreSQL
-- **Frontend:** React, Next.js, TypeScript
-- **Machine Learning:** XGBoost for classification, MinMaxScaler for preprocessing
-- **Data Processing:** Dask for scalable data handling
-
-## How It Works
-1. Transactions are ingested and stored in PostgreSQL.
-2. Data is processed using **Dask** to handle large volumes efficiently.
-3. Transactions are evaluated by a **pre-trained XGBoost model**, which assigns a fraud probability.
-4. Results are displayed in a **React dashboard**, with high-risk transactions flagged for review.
-5. Analysts can drill down into individual transactions, viewing features that contributed to the risk score.
-
-## Installation
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/inbanr/fraud-detection-system.git
-    ```
-2. Install backend dependencies:
-    ```bash
-    cd backend
-    pip install -r requirements.txt
-    ```
-3. Install frontend dependencies:
-    ```bash
-    cd frontend
-    npm install
-    ```
-4. Run backend:
-    ```bash
-    cd backend
-    uvicorn main:app --reload
-    ```
-5. Run frontend:
-    ```bash
-    cd frontend
-    npm run dev
-    ```
-
-## Future Enhancements
-- Add real-time webhook integration for instant fraud alerts.
-- Enhance ML model with ensemble methods for improved accuracy.
-- Add user role management for different analyst permissions.
-
-## Folder Structure
-fraud-detection-system/
-backend/
-    main.py - Main FastAPI app
-    model.py - XGBoost model loader
-    requirements.txt - Python dependencies
-frontend/
-    components/ - React components
-    pages/ - Next.js pages
-data/
-    creditcard_2023.csv - Original dataset
-    processed_transactions.csv - Cleaned data
-README.md - Project description
-LICENSE - Optional license
----
-
-## License
-MIT License
+We use the **Credit Card Fraud Detection** dataset from Kaggle:  
+[https://www.kaggle.com/datasets/dhanushnarayananr/credit-card-fraud](https://www.kaggle.com/datasets/dhanushnarayananr/credit-card-fraud)
 
 ---
 
-### Author
-Inban Rajamani
+## 📂 Project Structure
+
+```
+fraud-detection/
+├── backend/
+│   ├── data/
+│   │   └── creditcard.csv       # Place Kaggle dataset here
+│   ├── model.joblib             # Saved model parameters (weights, bias)
+│   ├── train.py                 # Train model manually using gradient descent
+│   ├── api.py                   # Flask API serving predictions and metrics
+│   └── requirements.txt         # Python dependencies
+└── frontend/
+    ├── src/
+    │   ├── App.js
+    │   ├── Dashboard.js
+    │   └── index.js
+    └── package.json             # React dependencies
+```
 
 ---
 
+## 🛠️ How it Works
+
+- **Training**:
+  - Manual Logistic Regression using custom **gradient descent**, **sigmoid activation**, and **loss function**.
+  - No use of sklearn's `LogisticRegression` model.
+  - Features `Time` and `Amount` are standardized before training.
+
+- **Backend**:
+  - Flask API (`api.py`) exposes:
+    - `POST /predict`: Predict fraud probability.
+    - `GET /metrics`: Return precision, recall, F1-score, and AUC-ROC.
+
+- **Frontend**:
+  - Built with React.js
+  - Fetches metrics from the Flask backend.
+  - Displays model performance using Chart.js graphs.
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/inbanr/fraud-detection.git
+cd fraud-detection
+```
+
+---
+
+### 2. Backend Setup
+
+#### a. Install Python Dependencies
+
+```bash
+cd backend
+python3 -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+pip install -r requirements.txt
+```
+
+#### b. Download and Place Dataset
+
+- Download `creditcard.csv` from Kaggle:  
+  [https://www.kaggle.com/datasets/dhanushnarayananr/credit-card-fraud](https://www.kaggle.com/datasets/dhanushnarayananr/credit-card-fraud)
+- Place it inside the `backend/data/` folder.
+
+#### c. Train the Model
+
+```bash
+python train.py
+```
+
+#### d. Start the Flask API
+
+```bash
+python api.py
+```
+
+The API will be available at: `http://localhost:5000`
+
+---
+
+### 3. Frontend Setup
+
+```bash
+cd ../frontend
+npm install
+npm start
+```
+
+The React app will be available at: `http://localhost:3000`
+
+Make sure the backend Flask server is running on port 5000 before starting the frontend.
+
+---
+
+## 📈 Example Model Metrics
+
+| Metric         | Example Value |
+|:---------------|:--------------|
+| Precision (Fraud) | 0.91 |
+| Recall (Fraud)    | 0.87 |
+| F1-Score (Fraud)  | 0.89 |
+| AUC-ROC           | 0.97 |
+
+*(Note: Actual results may vary depending on random splits.)*
+
+---
+
+## 📚 Tech Stack
+
+- Machine Learning: Custom Logistic Regression (no sklearn models)
+- Backend: Flask
+- Frontend: React.js + Chart.js
+- Data: Kaggle Credit Card Fraud Detection Dataset
+
+---
+
+## 📜 License
+
+This project is open-source and free to use for educational and project purposes.
+
+---
+
+## ✨ Acknowledgements
+
+- [Kaggle: Credit Card Fraud Detection Dataset](https://www.kaggle.com/datasets/dhanushnarayananr/credit-card-fraud)
+- Deep Learning Specialization (Andrew Ng) for the Gradient Descent inspiration
+
+---
