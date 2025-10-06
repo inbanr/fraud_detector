@@ -8,7 +8,7 @@ We use the **Credit Card Fraud Detection** dataset from Kaggle:
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 fraud-detection/
@@ -29,7 +29,7 @@ fraud-detection/
 
 ---
 
-## 🛠️ How it Works
+##  How it Works
 
 - **Training**:
   - Manual Logistic Regression using custom **gradient descent**, **sigmoid activation**, and **loss function**.
@@ -48,7 +48,7 @@ fraud-detection/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the Repository
 
@@ -106,7 +106,7 @@ Make sure the backend Flask server is running on port 5000 before starting the f
 
 ---
 
-## 📈 Example Model Metrics
+## Example Model Metrics
 
 | Metric         | Example Value |
 |:---------------|:--------------|
@@ -119,7 +119,7 @@ Make sure the backend Flask server is running on port 5000 before starting the f
 
 ---
 
-## 📚 Tech Stack
+## Tech Stack
 
 - Machine Learning: Custom Logistic Regression (no sklearn models)
 - Backend: Flask
@@ -128,13 +128,13 @@ Make sure the backend Flask server is running on port 5000 before starting the f
 
 ---
 
-## 📜 License
+## License
 
 This project is open-source and free to use for educational and project purposes.
 
 ---
 
-## ✨ Acknowledgements
+## Acknowledgements
 
 - [Kaggle: Credit Card Fraud Detection Dataset](https://www.kaggle.com/datasets/dhanushnarayananr/credit-card-fraud)
 - Deep Learning Specialization (Andrew Ng) for the Gradient Descent inspiration
